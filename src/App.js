@@ -1,13 +1,12 @@
-import React,{Component} from 'react';
+
 import {Navbar,NavbarBrand} from 'reactstrap';
 import Prog1 from './components/Prog1';
-import './App.css'
-class App extends Component{
-  constructor(props){
-    super(props);
+import React, {useState} from 'react'
 
-  }
-  render(){
+import './App.css'
+import { findRenderedComponentWithType } from 'react-dom/test-utils';
+function App(){
+  const[count,setCount]=useState(0)
     return(
       <div className="App">
         <Navbar dark color="primary">
@@ -15,10 +14,11 @@ class App extends Component{
             <NavbarBrand >Hire the top level developer</NavbarBrand>
           </div>
         </Navbar>
-        <Prog1 />
+        <h1>count:{count}</h1>
+        <button onClick={()=>setCount(count+1)}>click</button>
       </div>
     )
   }
-}
+
 
 export default App;
